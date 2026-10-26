@@ -1,0 +1,16 @@
+[tool.ruff]
+target-version = "py314"
+# requirements.txt에 없는 별도 평가용 의존성(ragas 등)을 쓰고, optional import를
+# 회피하려는 monkeypatch 때문에 import 순서가 의도적으로 흐트러져 있다 — CI 스코프 밖.
+extend-exclude = ["ragas_eval.py"]
+
+[tool.ruff.lint]
+# 실질적인 실수(미사용 import/변수, import 순서)만 잡는다.
+# SIM류(예: 중첩 async with 묶기)는 학습용 코드에서 단계를 명확히 보여주려고
+# 의도적으로 풀어쓴 스타일이라 강제하지 않는다.
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.pytest.ini_options]
+# 프로젝트가 패키지가 아니라 루트에 flat하게 스크립트로 존재해서,
+# tests/ 아래에서 실행해도 langgraph_advanced_rag 등을 import할 수 있게 루트를 추가.
+pythonpath = ["."]

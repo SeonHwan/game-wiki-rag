@@ -1,0 +1,17 @@
+# RAG 의존성
+
+anthropic           # 답변 생성 (/v1/messages, claude-sonnet-5)
+FlagEmbedding       # 로컬 임베딩 (BAAI/bge-m3, dense 1024차원)
+numpy               # 벡터 연산 (코사인 유사도)
+pydantic            # 데이터 모델/검증
+python-dotenv       # .env 로드
+rank_bm25           # 키워드 검색(BM25) — 하이브리드 검색의 절반
+qdrant-client       # 벡터DB Qdrant (임베디드/서버 모드 공용)
+mcp[cli]>=1.27,<2   # MCP 서버(FastMCP)/클라이언트 SDK (안정판 v1.x; v2는 아직 beta)
+langgraph           # LangGraph — StateGraph/ToolNode/조건부엣지
+langchain-anthropic # LangGraph에서 쓸 LLM 클라이언트(ChatAnthropic)
+langchain-mcp-adapters  # MCP 도구 → LangChain 도구 자동 변환(load_mcp_tools)
+fastapi             # langgraph_advanced_rag를 HTTP로 노출하는 서비스 래퍼
+uvicorn[standard]   # FastAPI ASGI 서버
+langfuse            # LangGraph 파이프라인 관측(트레이스/스팬/score)
+networkx            # GraphRAG — 개체/관계 그래프 구성 및 홉 탐색

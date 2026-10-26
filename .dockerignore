@@ -1,0 +1,15 @@
+.venv
+venv
+__pycache__
+*.pyc
+.git
+.gitignore
+.langgraph_api
+.vscode
+qdrant_local
+graph.png
+graph_xray.png
+.env
+deploy
+.github
+tests

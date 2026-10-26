@@ -1,0 +1,5 @@
+# CI/로컬 개발용 — 이미지(Dockerfile)에는 안 들어감(requirements.txt와 분리한 이유)
+-r requirements.txt
+
+pytest      # tests/ 구조 테스트 실행
+ruff        # lint (스타일 + 흔한 실수 검사)

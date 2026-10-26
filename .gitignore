@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Qdrant 임베디드 모드 저장 폴더 (재생성 가능한 데이터)
+qdrant_local/
+qdrant_local_contextual/
+qdrant_local_multi/
+
+# langgraph dev 로컬 실행 시 생기는 체크포인트/캐시 (머신 로컬 런타임 상태)
+.langgraph_api/
